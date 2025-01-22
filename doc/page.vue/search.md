@@ -1,4 +1,6 @@
-## 查询条件
+# search 查询条件
+
+## 配置示例
 
 ``` js
 {
@@ -27,6 +29,12 @@
 | name   | 查询条件的标签名                 |        |                                                      |
 | type   | 字段类型                         |        | `select`, `date`, `date-range`, `year`, `year-month` |
 
-### type 字段类型
+## type 字段类型
 
-#### `select`
+### `input` 输入框
+
+### `select` 下拉框
+
+### `date` 日期选择器
+
+## 插槽 solt
