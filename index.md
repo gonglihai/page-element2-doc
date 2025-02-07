@@ -4,22 +4,22 @@ layout: home
 
 hero:
   name: "Page.vue"
-  text: "Page.vue Development Documentation"
-  tagline: My great project tagline
+  text: "快速 易维护"
+  tagline: 好用的管理页面组件
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 快速上手
+      link: /doc/起步/安装#cdn-引入
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 安装
+      link: /doc/page.vue/page
 
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+# features:
+#   - title: Feature A
+#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#   - title: Feature B
+#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#   - title: Feature C
+#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
