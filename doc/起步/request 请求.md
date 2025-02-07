@@ -5,7 +5,7 @@
 默认的请求 API 设计相对简单，不包含接口鉴权、超时处理、请求/响应拦截等高级功能。可以通过引入自定义配置，替换默认的 API 实现，从而满足更复杂的请求需求。
 
 引入配置示例：
-``` js{9,12}
+``` js{8,11}
 // main.js
 
 import Vue from 'vue';
@@ -92,7 +92,7 @@ export default {
 }
 ```
 2. 修改 `main.js`，引入 `pageCustomApi.js` 并使用
-``` js{9,12}
+``` js{8,11}
 // main.js
 
 import Vue from 'vue';
