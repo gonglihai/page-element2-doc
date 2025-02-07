@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "公司总部",
+      "children": [
+        {
+          "id": 2,
+          "name": "研发部",
+          "children": [
+            {
+              "id": 3,
+              "name": "前端组",
+              "children": []
+            },
+            {
+              "id": 4,
+              "name": "后端组",
+              "children": []
+            },
+            {
+              "id": 5,
+              "name": "测试组",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "市场部",
+          "children": [
+            {
+              "id": 7,
+              "name": "国内市场组",
+              "children": []
+            },
+            {
+              "id": 8,
+              "name": "国际市场组",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "name": "人事部",
+          "children": [
+            {
+              "id": 10,
+              "name": "招聘组",
+              "children": []
+            },
+            {
+              "id": 11,
+              "name": "培训组",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "财务部",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
