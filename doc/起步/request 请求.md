@@ -10,14 +10,13 @@
 
 import Vue from 'vue';
 
-import Page from 'page-element2';
-import 'page-element2/lib/CustomPage.css';
+import VPage from 'page-element2';
 
 // 引入自定义 api
 import api from './api.js';
 
 // 让 Page.vue 使用 自定义 api
-Vue.use(Page, { api: api });
+Vue.use(VPage, { api: api });
 ```
 创建一个自定义 JavaScript 对象实现 [请求接口](#请求接口)，并在引入 Page.vue 时，通过传递 `api` 配置选项替换默认的 API 实现。
 
@@ -98,14 +97,13 @@ export default {
 
 import Vue from 'vue';
 
-import Page from 'page-element2';
-import 'page-element2/lib/CustomPage.css';
+import VPage from 'page-element2';
 
 // 引入 pageCustomApi.js, 注意文件路径
 import pageCustomApi from './pageCustomApi.js';
 
 // 使用自定义 request
-Vue.use(Page, { api: pageCustomApi });
+Vue.use(VPage, { api: pageCustomApi });
 ```
 
 ## 已有 request 接入（若依 ui）
