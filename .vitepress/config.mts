@@ -30,7 +30,6 @@ export default defineConfig({
           { text: 'button 操作按钮', link: '/doc/page.vue/button' },
           { text: 'table 数据表格', link: '/doc/page.vue/table' },
           { text: 'tree 左侧树', link: '/doc/page.vue/tree' },
-          { text: 'form 表单', link: '/doc/page.vue/form' }
         ]
       }
     ],

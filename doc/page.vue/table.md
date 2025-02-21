@@ -1,5 +1,17 @@
 # table 数据表格
 
+## 配置属性 Attributes
+// todo
+
+## 方法 Methods
+// todo
+
+## 事件 Events
+// todo
+
+## 插槽 Slot
+// todo
+
 ## 数据表格
 ``` js
 {

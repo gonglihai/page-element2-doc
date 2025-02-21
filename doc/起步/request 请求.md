@@ -108,6 +108,8 @@ Vue.use(VPage, { api: pageCustomApi });
 
 ## 已有 request 接入（若依 ui）
 
+使用若依 ui 的 request 
+
 将 [自定义实现](#自定义实现-axios) 中的 `pageCustomApi.js` 文件内容替换为下方代码。
 
 ``` js{4}

@@ -1,6 +1,16 @@
 # tree 左侧树
 
-## 左侧树
+## 配置属性 Attributes
+// todo
+
+## 方法 Methods
+// todo
+
+## 事件 Events
+// todo
+
+## 插槽 Slot
+// todo
 
 ``` js
 {
