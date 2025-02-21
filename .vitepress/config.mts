@@ -8,8 +8,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      // { text: '起步', link: '/doc/起步/安装' },
-      { text: '文档', link: '/doc/page.vue/page' }
+      { text: '文档', link: '/doc/page.vue/page' },
+      { text: '使用示例', link: 'https://page-element2-example.glh.red' }
     ],
 
     sidebar: [

@@ -11,8 +11,8 @@ hero:
       text: 快速上手
       link: /doc/起步/安装#cdn-引入
     - theme: alt
-      text: 安装
-      link: /doc/page.vue/page
+      text: 使用示例
+      link: https://page-element2-example.glh.red
 
 # features:
 #   - title: Feature A
