@@ -15,8 +15,8 @@ hero:
       link: https://page-element2-example.glh.red
 
 # features:
-#   - title: Feature A
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#   - title: 快速
+#     details: 通过 JavaScript 配置对象 来快速生成管理页面
 #   - title: Feature B
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 #   - title: Feature C
