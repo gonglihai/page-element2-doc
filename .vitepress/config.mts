@@ -9,7 +9,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: '文档', link: '/doc/page.vue/page' },
-      { text: '使用示例', link: 'https://page-element2-example.glh.red' }
+      { text: '使用示例', link: 'https://page-element2-example.glh.red' },
+      { text: '变更日志', link: 'https://github.com/gonglihai/page-element2/blob/main/changelog.md' }
     ],
 
     sidebar: [
