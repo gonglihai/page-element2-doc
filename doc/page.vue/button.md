@@ -13,7 +13,7 @@
       api: '/del', field: 'id', requestField: 'ids', fieldType: 'string'
     },
   ]
-}
+},
 ```
 
 
@@ -34,7 +34,7 @@
 
 
 
-## `click` 点击事件 属性
+## 'click' 点击事件 属性
 
 `click` 可配置为 字符串 或 函数 类型：
 
@@ -83,7 +83,7 @@ export default {
 
 
 
-## `hidden` 是否隐藏按钮 属性
+## 'hidden' 是否隐藏按钮 属性
 
 `hidden` 可配置为布尔值或函数类型：
 
@@ -103,7 +103,7 @@ export default {
 
 
 
-## `internal` 内置事件处理 属性
+## 'internal' 内置事件处理 属性
 
 当前仅内置 `'delete'` 事件用于删除操作。
 
