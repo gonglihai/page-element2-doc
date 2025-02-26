@@ -12,7 +12,6 @@ export default defineConfig({
       { text: '使用示例', link: 'https://page-element2-example.glh.red' },
       { text: '变更日志', link: 'https://github.com/gonglihai/page-element2/blob/main/changelog.md' }
     ],
-
     sidebar: [
       {
         text: '起步',
@@ -34,13 +33,32 @@ export default defineConfig({
         ]
       }
     ],
-
+    darkModeSwitchTitle: '切换到深色模式',
+    lightModeSwitchTitle: '切换到浅色模式',
+    lastUpdated: {
+      text: '上次更新',
+    },
+    outline: {
+      level: [2, 3],
+      label: '页面导航'
+    },
+    editLink: {
+      pattern: 'https://github.com/gonglihai/page-element2-doc/tree/main/:path',
+      text: '在 GitHub 上编辑此页'
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/gonglihai/page-element2' }
     ],
     // 搜索
     search: {
       provider: 'local'
-    }
+    },
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+  },
+  markdown: {
+    lineNumbers: true
   }
 })

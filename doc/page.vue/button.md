@@ -18,23 +18,23 @@
 
 
 
-## 配置属性 Attributes
+## 配置属性
 
 | 属性名      | 说明                                                         | 类型               | 默认值 | 可选值                                                       |
 | ----------- | ------------------------------------------------------------ | ------------------ | ------ | ------------------------------------------------------------ |
 | name        | 按钮显示文字                                                 | string             | -      | -                                                            |
 | color       | 按钮的颜色<br/>颜色取自 Element UI Button 组件的 [type 属性](https://element.eleme.cn/#/zh-CN/component/button#attributes) | string             | -      | `'primary'` 蓝色<br/>`'success'` 绿色<br/>`'info'` 灰色<br/>`'warning'` 黄色<br/>`'danger'` 红色<br/>`'text'`文字按钮 |
 | icon        | 图标                                                         | string             | -      | 见 [图标集合](https://element.eleme.cn/#/zh-CN/component/icon#tu-biao-ji-he) |
-| click       | 点击事件, 见 [click 说明](#click-点击事件-属性)              | string / function  | -      | -                                                            |
-| hidden      | 是否隐藏按钮, 见 [hidden 说明](#hidden-是否隐藏按钮-属性)    | boolean / function | false  | -                                                            |
+| click       | 点击事件, 见 [click 说明](#click-点击事件)                   | string / function  | -      | -                                                            |
+| hidden      | 是否隐藏按钮, 见 [hidden 说明](#hidden-是否隐藏按钮)         | boolean / function | false  | -                                                            |
 | selectMin   | 指定数据表格的最少选中数量，若选中的条数不足，则进行提示。   | number             | -      | -                                                            |
 | selectMax   | 指定数据表格的最多选中数量，若选中的条数超出，则进行提示。   | number             | -      | -                                                            |
 | selectCount | 指定数据表格的选中数量，若选中的条数超出或不足，则进行提示。 | number             | -      | -                                                            |
-| internal    | 内置事件处理, 见 [internal 说明](#internal-内置事件处理-属性) | string             | -      | `'delete'` 内置删除                                          |
+| internal    | 内置事件处理, 见 [internal 说明](#internal-内置事件处理)     | string             | -      | `'delete'` 内置删除                                          |
 
 
 
-## 'click' 点击事件 属性
+### click 点击事件
 
 `click` 可配置为 字符串 或 函数 类型：
 
@@ -46,9 +46,9 @@
 1. 数据表格选中的数据。
 2. 当前按钮的配置信息。
 
+::: details 代码演示了 `click` 配置为字符串和函数两种类型的处理方式。
 
-
-``` html
+``` html {3,12,14}
 <template>
   <!-- 这里绑定 buttonAdd 事件到 buttonAddClick 函数 -->
   <VPage :page="pageOption" @buttonAdd="buttonAddClick"></VPage>
@@ -79,11 +79,11 @@ export default {
 </script>
 ```
 
-> 以上代码演示了 `click` 配置为字符串和函数两种类型的处理方式。
+:::
 
 
 
-## 'hidden' 是否隐藏按钮 属性
+### hidden 是否隐藏按钮
 
 `hidden` 可配置为布尔值或函数类型：
 
@@ -103,7 +103,7 @@ export default {
 
 
 
-## 'internal' 内置事件处理 属性
+### internal 内置事件处理
 
 当前仅内置 `'delete'` 事件用于删除操作。
 
@@ -120,20 +120,22 @@ export default {
   - `'string'`：表示 `field` 是一个逗号分隔的字符串。
   - `'array'`：表示 `field` 是一个数组。
 
-<br/>
-
-> 默认情况下，`delete` 请求被认为不能携带请求体，因此 `fieldType` 会始终被设置为 `'string'`，即逗号分隔的字符串格式。
 
 
+>[!WARNING] 
+>
+>默认情况下，`delete` 请求被认为不能携带请求体，因此 `fieldType` 会始终被设置为 `'string'`，即逗号分隔的字符串格式。
 
-## 事件 Events
+
+
+## 事件
 | 事件名 | 说明                                                         | 参数                         |
 | ------ | ------------------------------------------------------------ | ---------------------------- |
 | -      | 当 `click` 属性配置为字符串时，点击将触发对应名称的事件，并传递该字符串值作为事件名。 | 数据表格选中的数据, 按钮配置 |
 
 
 
-## 插槽 Slot
+## 插槽
 | 插槽名       | 说明     |
 | ------------ | -------- |
 | button-start | 按钮之前 |
