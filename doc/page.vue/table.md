@@ -242,51 +242,186 @@
 
 
 
+
+
 ### `type = 'tag'` 标签
 
+| 属性名  | 说明                                                         | 类型                      | 默认值 | 可选值                                                       |
+| ------- | ------------------------------------------------------------ | ------------------------- | ------ | ------------------------------------------------------------ |
+| tag     | 标签的颜色, [el-tag 的 type 属性](https://element.eleme.cn/#/zh-CN/component/tag#attributes) | array / object / function | -      | <div style="width: 95px">`'success'` 绿<br/>`'info'` 灰<br/>`'warning'` 黄<br/>`'danger'` 红</div> |
+| content | 标签显示内容                                                 | array / object / function | -      | -                                                            |
 
+
+
+#### 标签 tag 和 content 配置类型
+
+`tag` 和 `content` 的值支持 [数组](#配置为数组)、[对象](#配置为对象) 或 [函数](#配置为函数)，可根据不同需求选择合适的方式配置。
+
+
+
+##### 配置为数组
+
+当 `tag` 配置为数组时，**数组的索引对应数据表格列的值，索引处的值表示标签颜色**。
+
+
+
+::: details 示例：配置值类型为数组
+
+```js
+// 假设此为表格数据
+// status 代表用户状态：0-正常，1-删除，2-离职，3-冻结。
+// name   代表用户姓名。
+[
+  { status: 0, name: '张三' },
+  { status: 1, name: '李四' },
+  { status: 2, name: '王五' },
+  // ... 其他数据
+]
+
+// 表格列配置
+{
+  col: [
+    // 状态列
+    { 
+      field: 'status', 
+      name: '状态', 
+      type: 'tag', 
+      // 状态值对应的标签颜色：
+      // 0-正常（success，绿色）
+      // 1-删除（danger，红色） 
+      // 2-离职（info，灰色）
+      // 3-冻结（warning，黄色）
+      tag: ['success', 'danger', 'info', 'warning'],
+      content: ['正常', '删除', '离职', '冻结']
+    },
+    { field: 'name', name: '姓名' },
+  ]
+}
+```
+
+:::
+
+
+
+##### 配置为对象
+
+当 `tag` 配置为对象时，**对象的属性名对应数据表格列的值，属性值表示标签颜色**。
+
+
+
+::: details 示例：配置值类型为对象
+
+```js
+// 假设此为表格数据
+// status 代表用户状态：'active'-正常，'deleted'-删除，'resigned'-离职，'frozen'-冻结。
+// name   代表用户姓名。
+[
+  { status: 'active', name: '张三' },
+  { status: 'deleted', name: '李四' },
+  { status: 'resigned', name: '王五' },
+  // ... 其他数据
+]
+
+// 表格列配置
+{
+  col: [
+    // 状态列
+    { 
+      field: 'status', 
+      name: '状态', 
+      type: 'tag', 
+      // 状态值对应的标签颜色：
+      tag: {
+        'active': 'success', // 'active'-正常（info，灰色）
+        'deleted': 'danger', // 'deleted'-删除（success，绿色）
+        'resigned': 'info',  // 'resigned'-离职（warning，黄色）
+        'frozen': 'warning', // 'frozen'-冻结（danger，红色）
+      },
+      // 列的值对应的状态名
+      content: {
+        'active': '正常',
+        'deleted': '删除',
+        'resigned': '离职',
+        'frozen': '冻结',
+      }
+    },
+    { field: 'name', name: '姓名' },
+  ]
+}
+```
+
+:::
+
+
+
+##### 配置为函数
+
+当 `tag` 配置为函数时，**该函数接收两个参数：一个是表格列配置（`col`），另一个是 Element UI 中的 [Table-column Scoped](https://element.eleme.cn/#/zh-CN/component/table#table-column-scoped-slot)**。
+
+该函数需要返回对应的标签颜色：`'success'`（绿色）、`'info'`（灰色）、`'warning'`（黄色）、`'danger'`（红色）。
+
+<hr/>
 
 
 
 ### `type = 'button'` 按钮
 
+| 属性名 | 说明                                               | 类型  | 默认值 | 可选值 |
+| ------ | -------------------------------------------------- | ----- | ------ | ------ |
+| button | 按钮配置集合, 见 [按钮项配置属性](#按钮项配置属性) | array | -      | -      |
 
+#### 按钮项配置属性
+
+| 属性名       | 说明                                                         | 类型               | 默认值      | 可选值                                                       |
+| ------------ | ------------------------------------------------------------ | ------------------ | ----------- | ------------------------------------------------------------ |
+| name         | 按钮显示文字                                                 | string             | -           | -                                                            |
+| color        | 颜色<br/>颜色取自 Element UI Button 组件的 [type 属性](https://element.eleme.cn/#/zh-CN/component/button#attributes) | string             | `'primary'` | `'primary'` 蓝色<br/>`'success'` 绿色<br/>`'info'` 灰色<br/>`'warning'` 黄色<br/>`'danger'` 红色<br/>`'text'`文字按钮 |
+| icon         | 图标                                                         | string             | -           | 见 [图标集合](https://element.eleme.cn/#/zh-CN/component/icon#tu-biao-ji-he) |
+| click        | 点击事件。函数的参数依次为 [Table-column Scoped](https://element.eleme.cn/#/zh-CN/component/table#table-column-scoped-slot)、`col` 列配置以及 `button` 按钮配置。 | function           | -           | -                                                            |
+| hidden       | 是否隐藏按钮。函数的参数与 `click` 属性保持一致，需要返回一个布尔值，以控制按钮的显示与隐藏。 | boolean / function | `false`     | `true` 隐藏按钮<br/>`false` 显示按钮                         |
+| confirmClick | 确认点击事件。点击按钮后会弹出二次确认框，用户确认后才会调用函数。函数的参数与 `click` 属性保持一致。 | function           | -           | -                                                            |
 
 
 
 ### `type = 'link'` 链接
 
-
+| 属性名 | 说明                                                         | 类型     | 默认值      | 可选值                                                       |
+| ------ | ------------------------------------------------------------ | -------- | ----------- | ------------------------------------------------------------ |
+| color  | 颜色<br/>颜色取自 Element UI Link 组件的 [type 属性](https://element.eleme.cn/#/zh-CN/component/link#attributes) | string   | `'primary'` | `'primary'` 蓝色<br/>`'success'` 绿色<br/>`'info'` 灰色<br/>`'warning'` 黄色<br/>`'danger'` 红色<br/>`'text'`文字按钮 |
+| click  | 点击事件。函数参数依次为 [Table-column Scoped](https://element.eleme.cn/#/zh-CN/component/table#table-column-scoped-slot)、`col` 列配置。 | function | -           | -                                                            |
 
 
 
 ## 方法 Methods
-// todo
 
-## 事件 Events
-// todo
+通过 `this.$refs.page.$table.xxx` 调用，`page` 为 `<VPage ref="page" />` 的 ref 的值。
+
+| 方法名       | 说明                   | 参数             |
+| ------------ | ---------------------- | ---------------- |
+| clean        | 清理数据表格选中的数据 | -                |
+| reloadData   | 重加载数据             | search 查询条件  |
+| setTableData | 设置数据表格数据       | 数据行、数据总数 |
+
+
 
 ## 插槽 Slot
-// todo
+| 插槽名      | 说明                                      | 参数                     |
+| ----------- | ----------------------------------------- | ------------------------ |
+| table-col-* | 表格列内容插槽, * 为 `field` 属性配置的值 | 见 [插槽参数](#插槽参数) |
 
-## 数据表格
+#### 插槽参数
+
 ``` js
-{
-  table: {
-    border: true,       // 表格边框
-    select: true,       // 行内复选框
-    api: '/xxx/list',   // 数据来源
-    col: [              // 表格列
-      { field: 'code', name: '编号', width: 55, align: 'center' },  // 普通文字列
-      { field: 'enabled', name: '是否启用', type: 'switch' },       // 开关
-      { field: 'detail', name: '详情', type: 'link' },              // 连接
-      { name: '操作', type: 'button',                               // 按钮
-        button: [
-          { name: '编辑', click: ({ row }) => console.log('点击了编辑') },
-          { name: '删除', click: ({ row }) => console.log('点击了删除') }
-        ]
-      }
-    ]
-  }
+slotParam: {
+  value, // 列的值
+  row,   // 行数据
+  index, // 行序号
+  col,   // 列配置
+  scope, // element-ui 表格列插槽原始参数
 }
 ```
+
+> [element-ui 表格列插槽原始参数](https://element.eleme.cn/#/zh-CN/component/table#table-column-scoped-slot)
+
+
+
