@@ -1,8 +1,12 @@
-## run
+## 本地运行
 ``` shell
-vitepress dev
+npm run docs:dev
 ```
 
+## 打包静态文件
+``` shell
+npm run docs:build
+```
 
 ## 部署 Nginx 配置
 ``` nginx
