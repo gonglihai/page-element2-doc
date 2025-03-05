@@ -1,6 +1,6 @@
 # table 数据表格
 
-`table` 的配置是一个对象。以下是其配置示例：
+`table` 数据表格的配置是一个对象。以下是其配置示例：
 
 ``` js
 {
@@ -29,7 +29,7 @@
 }
 ```
 
-## 配置属性 Attributes
+## 配置属性
 
 | 属性名           | 说明                                                         | 类型                   | 默认值    | 可选值                            |
 | ---------------- | ------------------------------------------------------------ | ---------------------- | --------- | --------------------------------- |
@@ -42,7 +42,7 @@
 | paramFilter      | 请求参数过滤函数。见 [paramFilter 说明](#paramfilter-请求参数过滤函数) | function               | -         | -                                 |
 | props            | 属性名映射。分页请求参数、响应数据与总数属性名映射。见 [props 说明](#props-属性名映射) | object                 | -         | -                                 |
 | response         | 响应处理函数。见 [response 说明](#response-响应处理函数)     | function               | -         | -                                 |
-| size             | 表格尺寸，可在全局配置内配置，`tableSize`                    | string                 | `'small'` | `'medium'` / `'small'` / `'mini'` |
+| size             | 表格尺寸                                                     | string                 | `'small'` | `'medium'` / `'small'` / `'mini'` |
 | border           | 是否显示边框。<br/>当 `col` 包含多级表头时, 会强制显示边框   | boolean                | true      | -                                 |
 | stripe           | 斑马纹                                                       | boolean                | false     | -                                 |
 | rowKey           | 见 [Table Attributes](https://element.eleme.cn/#/zh-CN/component/table#table-attributes) 内 `row-key` | function(row) / String | -         | -                                 |
@@ -393,7 +393,7 @@
 
 
 
-## 方法 Methods
+## 方法
 
 通过 `this.$refs.page.$table.xxx` 调用，`page` 为 `<VPage ref="page" />` 的 ref 的值。
 
@@ -405,10 +405,12 @@
 
 
 
-## 插槽 Slot
-| 插槽名      | 说明                                      | 参数                     |
-| ----------- | ----------------------------------------- | ------------------------ |
-| table-col-* | 表格列内容插槽, * 为 `field` 属性配置的值 | 见 [插槽参数](#插槽参数) |
+## 插槽
+| 插槽名           | 说明                                      | 参数                     |
+| ---------------- | ----------------------------------------- | ------------------------ |
+| table-col-*      | 表格列内容插槽, * 为 `field` 属性配置的值 | 见 [插槽参数](#插槽参数) |
+| table-page-start | 分页之前                                  | -                        |
+| table-page-end   | 分页之后                                  | -                        |
 
 #### 插槽参数
 
@@ -426,3 +428,87 @@ slotParam: {
 
 
 
+## 自定义列类型
+
+当表格的默认列类型无法满足需求时，可以通过自定义列来增强表格功能，以实现更灵活的展示效果。
+
+**第一步：编写自定义列组件**
+
+`table` 组件提供了 `col`（当前列的配置项）和 `scope`（[Table-column Scoped](https://element.eleme.cn/#/zh-CN/component/table#table-column-scoped-slot)）这两个 `props` 绑定，可以根据需要使用。
+
+``` vue {10-11}
+<template>
+  <div>
+    <!-- 你的模板内容 -->
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    col: Object,   // 当前列的配置项
+    scope: Object, // Element UI Table column scoped
+  }
+}
+</script>
+```
+
+**或者** 引入 [TableColMixin](https://github.com/gonglihai/page-element2/blob/main/src/page/table/col/TableColMixin.js) 使用 [混入 (mixin)](https://v2.cn.vuejs.org/v2/guide/mixins.html)，快速定义这两个 `props`：
+
+```vue {8,10}
+<template>
+  <div>
+    <!-- 你的模板内容 -->
+  </div>
+</template>
+
+<script>
+import { TableColMixin } from 'page-element2';
+export default {
+  mixins: [TableColMixin]
+}
+</script>
+```
+
+> `TableColMixin` 还提供了一个 `content` 计算属性，该属性表示调用 `fmt` 函数（如果已配置）后的表格内容。
+
+
+
+**第二步：在全局配置中引入自定义列组件**
+
+在 `table` 配置项下新增 `colType` 对象，`colType` 的属性名为列类型，值为动态引入的组件方法：
+
+```js {4,6}
+// VPageConfig.js
+{
+  table: {
+    colType: {
+      // 导入你的组件, 使用时, type 为 'customType'
+      customType: () => import('./你的目录/组件名.vue')
+    }
+  }
+}
+```
+
+
+
+**第三步：在配置中使用自定义列类型**
+
+```js {6}
+// vpage 配置
+{
+  table: {
+    col: [
+      // 使用自定义的列类型
+      { type: 'customType', name: '自定义列' },
+      // ...
+    ]
+  }
+}
+```
+
+这样，你可以在表格中使用自定义列组件，增强表格的功能和可扩展性。
+
+
+
+> **这里有个一个示例**: [自定义表格列类型](https://page-element2-example.glh.red/#/advanced/CustomTableColType)
