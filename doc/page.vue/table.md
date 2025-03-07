@@ -31,23 +31,31 @@
 
 ## 配置属性
 
-| 属性名           | 说明                                                         | 类型                   | 默认值    | 可选值                            |
-| ---------------- | ------------------------------------------------------------ | ---------------------- | --------- | --------------------------------- |
-| select           | 是否开启复选框                                               | boolean                | true      | -                                 |
-| rowClickSelect   | 行点击选中                                                   | boolean                | false     | -                                 |
-| pagination       | 是否开启分页                                                 | boolean                | true      | -                                 |
-| data             | 静态数据                                                     | array                  | -         | -                                 |
-| api              | 动态数据 api 请求接口 uri 地址。当 api 变更时, 会重新获取数据。 | string                 | -         | -                                 |
-| param            | 请求固定参数。见 [param 说明](#param-请求固定参数)           | object                 | -         | -                                 |
-| paramFilter      | 请求参数过滤函数。见 [paramFilter 说明](#paramfilter-请求参数过滤函数) | function               | -         | -                                 |
-| props            | 属性名映射。分页请求参数、响应数据与总数属性名映射。见 [props 说明](#props-属性名映射) | object                 | -         | -                                 |
-| response         | 响应处理函数。见 [response 说明](#response-响应处理函数)     | function               | -         | -                                 |
-| size             | 表格尺寸                                                     | string                 | `'small'` | `'medium'` / `'small'` / `'mini'` |
-| border           | 是否显示边框。<br/>当 `col` 包含多级表头时, 会强制显示边框   | boolean                | true      | -                                 |
-| stripe           | 斑马纹                                                       | boolean                | false     | -                                 |
-| rowKey           | 见 [Table Attributes](https://element.eleme.cn/#/zh-CN/component/table#table-attributes) 内 `row-key` | function(row) / String | -         | -                                 |
-| defaultExpandAll | 是否默认展开所有行,  见 [Table Attributes](https://element.eleme.cn/#/zh-CN/component/table#table-attributes) 内 `default-expand-all` | boolean                | -         | -                                 |
-| col              | 列配置, 见 [col 列配置](#col-列配置)                         | array                  | -         | -                                 |
+| 属性名           | 说明                                                         | 类型                   | 默认值               | 可选值                            |
+| ---------------- | ------------------------------------------------------------ | ---------------------- | -------------------- | --------------------------------- |
+| select           | 是否开启复选框                                               | boolean                | true                 | -                                 |
+| rowClickSelect   | 行点击选中                                                   | boolean                | false                | -                                 |
+| data             | 静态数据                                                     | array                  | -                    | -                                 |
+| api              | 动态数据 api 请求接口 uri 地址。当 api 变更时, 会重新获取数据。 | string                 | -                    | -                                 |
+| param            | 请求固定参数。见 [param 说明](#param-请求固定参数)           | object                 | -                    | -                                 |
+| paramFilter      | 请求参数过滤函数。见 [paramFilter 说明](#paramfilter-请求参数过滤函数) | function               | -                    | -                                 |
+| size             | 表格尺寸                                                     | string                 | `'small'`            | `'medium'` / `'small'` / `'mini'` |
+| border           | 是否显示边框。<br/>当 `col` 包含多级表头时, 会强制显示边框   | boolean                | true                 | -                                 |
+| stripe           | 斑马纹                                                       | boolean                | false                | -                                 |
+| rowKey           | 见 [Table Attributes](https://element.eleme.cn/#/zh-CN/component/table#table-attributes) 内 `row-key` | function(row) / String | -                    | -                                 |
+| defaultExpandAll | 是否默认展开所有行,  见 [Table Attributes](https://element.eleme.cn/#/zh-CN/component/table#table-attributes) 内 `default-expand-all` | boolean                | -                    | -                                 |
+| col              | 列配置, 见 [col 列配置](#col-列配置)                         | array                  | -                    | -                                 |
+| pagination       | 是否开启分页                                                 | boolean                | true                 | -                                 |
+| pageSizes        | 页码选项                                                     | array                  | `[20, 50, 100, 200]` | -                                 |
+| pageNumber       | 请求参数, 页码字段名                                         | string                 | `'pageNo'`           | -                                 |
+| pageSize         | 请求参数, 页大小字段名                                       | string                 | `'pageSize'`         | -                                 |
+| response         | 响应处理函数。见 [response 说明](#response-响应处理函数)     | function               | -                    | -                                 |
+| dataField        | 响应, 数据行的字段名                                         | string                 | `'rows'`             | -                                 |
+| totalField       | 响应, 数据数量的字段名                                       | string                 | `'total'`            | -                                 |
+| orderField       | 当某一列排序 `sortable` 设置为 `'custom'` 后, 请求参数, 排序字段名 | string                 | `'orderBy'`          | -                                 |
+| orderBy          | 排序顺序方式数组, 第一位为正序, 第二位为倒序                 | array                  | `['asc', 'desc']`    | -                                 |
+
+
 
 ### param 请求固定参数
 
@@ -77,25 +85,6 @@
 
 
 
-### props 属性名映射
-
-`props` 是一个对象，包含以下配置：
-
-```js
-{
-  page: 'pageNo',    // 请求参数，页码的属性名。可以在全局配置中配置，config.page.pageNumber
-  limit: 'pageSize', // 请求参数，页大小的属性名。可以在全局配置中配置，config.page.pageSize
-  data: 'rows',      // 响应，数据的属性名
-  total: 'total',    // 响应，数据总条数的属性名
-}
-```
-
->   [!NOTE]
->
-> `data` 和 `total` 两个字段的值是 [response 响应处理函数](#response-响应处理函数) 所需要返回的对象属性的属性名。
-
-
-
 ### response 响应处理函数
 
 与全局配置中的 `response` 函数一致，对响应进行处理，返回数据表格所需的数据格式。
@@ -107,26 +96,26 @@
 
 >  [!NOTE]
 >
-> `rows` 和 `total` 属性名可在 [props 属性名映射](#props-属性名映射) 修改。 
+> `rows` 和 `total` 属性名可通过 `dataField` 和  `totalField` 配置
 
 
 
 ## col 列配置
 
-| 属性名   | 说明                                                         | 类型            | 默认值   | 可选值                                                       |
-| -------- | ------------------------------------------------------------ | --------------- | -------- | ------------------------------------------------------------ |
-| field    | 表格每行数据对象中值对应的键名, 对应列内容的属性名           | string          | -        | -                                                            |
-| name     | 表头列名                                                     | string          | -        | -                                                            |
-| children | 多级表头中，下级表头的配置集合。配置此项后，`field` 属性将不再需要。 | array           | -        | -                                                            |
-| fmt      | 列内容格式化, 见 [fmt 说明](#fmt-列内容格式化)               | function        | -        | -                                                            |
-| type     | 列类型                                                       | string          | `'text'` | <div style="width: 155px">`'text'` 文本<br/>`'switch'` [开关](#type-switch-开关)<br/>`'tag'` [标签](#type-tag-标签)<br/>`'button'` [按钮](#type-button-按钮)<br/>`'link'` [链接](#type-link-链接)</div> |
-| show     | 列是否显示                                                   | boolean         | true     | -                                                            |
-| width    | 宽度                                                         | string          | -        | -                                                            |
-| minWidth | 对应列的最小宽度                                             | string          | -        | -                                                            |
-| sortable | 是否可以排序, 配置 children 多级表头后失效                   | boolean         | false    | -                                                            |
-| fixed    | 列是否固定在左侧或者右侧，`true` 表示固定在左侧              | string, boolean | false    | `true` / `'left'` / `'right'`                                |
-| align    | 对齐方式                                                     | string          | `'left'` | `'left'` / `'center'` / `'right'`                            |
-| class    | 列的 className                                               | string          | -        | -                                                            |
+| 属性名   | 说明                                                         | 类型                | 默认值   | 可选值                                                       |
+| -------- | ------------------------------------------------------------ | ------------------- | -------- | ------------------------------------------------------------ |
+| field    | 表格每行数据对象中值对应的键名, 对应列内容的属性名           | string              | -        | -                                                            |
+| name     | 表头列名                                                     | string              | -        | -                                                            |
+| children | 多级表头中，下级表头的配置集合。配置此项后，`field` 属性将不再需要。 | array               | -        | -                                                            |
+| fmt      | 列内容格式化, 见 [fmt 说明](#fmt-列内容格式化)               | function            | -        | -                                                            |
+| type     | 列类型                                                       | string              | `'text'` | <div style="width: 155px">`'text'` 文本<br/>`'switch'` [开关](#type-switch-开关)<br/>`'tag'` [标签](#type-tag-标签)<br/>`'button'` [按钮](#type-button-按钮)<br/>`'link'` [链接](#type-link-链接)</div> |
+| show     | 列是否显示                                                   | boolean             | true     | -                                                            |
+| width    | 宽度                                                         | string              | -        | -                                                            |
+| minWidth | 对应列的最小宽度                                             | string              | -        | -                                                            |
+| sortable | 是否开启排序, 见 [sortable 说明](#sortable-是否开启排序)     | boolean, `'custom'` | false    | -                                                            |
+| fixed    | 列是否固定在左侧或者右侧，`true` 表示固定在左侧              | string, boolean     | false    | `true` / `'left'` / `'right'`                                |
+| align    | 对齐方式                                                     | string              | `'left'` | `'left'` / `'center'` / `'right'`                            |
+| class    | 列的 className                                               | string              | -        | -                                                            |
 
 
 
@@ -141,6 +130,22 @@
 - `scope`：Element UI 中 [Table-column Scoped](https://element.eleme.cn/#/zh-CN/component/table#table-column-scoped-slot)
 
 该函数需要返回一个值，作为单元格显示的内容。
+
+
+
+### sortable 是否开启排序
+
+当该配置项为布尔类型时，`true` 表示使用内部排序，`false` 表示不进行排序。若配置为 `'custom'`，表示外部排序，请求中会携带排序参数。
+
+请求中携带的排序参数名由 `table.orderField` 控制。
+
+
+
+>  [!WARNING]
+>
+>  若已配置 `children` 进行多级表头设置，则该字段无效。
+
+
 
 
 

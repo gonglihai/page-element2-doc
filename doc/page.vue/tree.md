@@ -12,25 +12,22 @@ tree: {
 
 
 ## 配置属性
-| 属性名      | 说明                                           | 类型                        | 默认值    | 可选值 |
-| ----------- | ---------------------------------------------- | --------------------------- | --------- | ------ |
-| field       | 表格查询参数字段名                             | string                      | -         | -      |
-| name        | 名称                                           | string                      | -         | -      |
-| width       | 宽度                                           | string                      | `'300px'` | -      |
-| expand      | 默认展开全部                                   | boolean                     | false     | -      |
-| expandLevel | 展开级别, 控制树的第几级展开                   | number                      | 1         | -      |
-| addRoot     | 是否像数据添加根节点                           | boolean                     | false     | -      |
-| rootName    | 添加的根节点显示名称                           | string                      | `'全部'`  | -      |
-| props       | 属性名映射, 见 [props 说明](#props-属性名映射) | object                      | -         | -      |
-| data        | 静态数据                                       | object                      | -         | -      |
-| api         | 数据请求地址, 见 [api 说明](#api-数据请求地址) | string / function / Promise | -         | -      |
-| response    | 树数据请求响应处理                             | function                    | -         | -      |
-
-
-
-## props 属性名映射
-
-`props` 配置为一个对象，包含以下字段：`label`（树节点显示的字段名）、`value`（树节点的值字段名）、`children`（树子节点的字段名）。
+| 属性名        | 说明                                           | 类型                        | 默认值       | 可选值 |
+| ------------- | ---------------------------------------------- | --------------------------- | ------------ | ------ |
+| field         | 表格查询参数字段名                             | string                      | -            | -      |
+| name          | 树名称, 搜索框的名字                           | string                      | -            | -      |
+| width         | 宽度                                           | string                      | `'300px'`    | -      |
+| expand        | 默认展开全部                                   | boolean                     | false        | -      |
+| expandLevel   | 展开级别, 控制树的第几级展开                   | number                      | 1            | -      |
+| data          | 静态数据                                       | object                      | -            | -      |
+| api           | 数据请求地址, 见 [api 说明](#api-数据请求地址) | string / function / Promise | -            | -      |
+| response      | 树数据请求响应处理                             | function                    | -            | -      |
+| labelField    | 树节点显示字段名                               | string                      | `'name'`     | -      |
+| valueField    | 树节点值字段名                                 | string                      | `'id'`       | -      |
+| childrenField | 树子节点字段名                                 | string                      | `'children'` | -      |
+| addRoot       | 是否向数据添加根节点                           | boolean                     | false        | -      |
+| rootName      | 添加的根节点显示名称                           | string                      | `'全部'`     | -      |
+| rootValue     | 添加的根节点的值                               | any                         | `undefined`  | -      |
 
 
 
