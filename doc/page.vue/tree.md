@@ -28,6 +28,7 @@ tree: {
 | addRoot       | 是否向数据添加根节点                           | boolean                     | false        | -      |
 | rootName      | 添加的根节点显示名称                           | string                      | `'全部'`     | -      |
 | rootValue     | 添加的根节点的值                               | any                         | `undefined`  | -      |
+| fold          | 是否默认折叠                                   | boolean                     | false        | -      |
 
 
 

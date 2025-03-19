@@ -34,6 +34,7 @@
 | placeholder | 输入提示。<br/>默认的输入提示有两种，分别是：`请输入xxx` 和 `请选择xxx`，其中 `xxx` 为 `label` 配置的值。组件会根据 `type` 自动匹配合适的默认提示。 | string            | `请输入`  <br/> `请选择` | -                                                            |
 | clearable   | 是否可清空                                                   | boolean           | `true`                   | -                                                            |
 | default     | 默认值, 当为 `function` 时, 函数返回的值做为下拉框的值, 函数没有参数 | string / function | -                        | -                                                            |
+| fold        | 是否默认折叠                                                 | boolean           | false                    | -                                                            |
 
 
 
