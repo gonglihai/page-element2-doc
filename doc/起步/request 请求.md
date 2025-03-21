@@ -137,4 +137,4 @@ export default {
 > 若依 ui request 见 [request.js](https://gitee.com/y_project/RuoYi-Vue/blob/master/ruoyi-ui/src/utils/request.js)
 
 ## 默认请求实现
-见 [默认请求实现](https://github.com/gonglihai/page-element2/blob/main/packages/page/api/fetchApi.js)
+见 [默认请求实现](https://github.com/gonglihai/page-element2/blob/main/src/page/api/fetchApi.js)
