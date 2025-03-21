@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: 使用示例
       link: https://page-element2-example.glh.red
+    - theme: alt
+      text: 升级到 Vue3 (迁移中)
+      link: https://github.com/gonglihai/page-element-plus
 
 # features:
 #   - title: 快速
