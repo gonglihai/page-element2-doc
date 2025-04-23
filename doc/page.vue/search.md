@@ -64,6 +64,7 @@
 | placeholder | 输入提示。<br/>默认的输入提示有两种，分别是：`请输入xxx` 和 `请选择xxx`，其中 `xxx` 为 `label` 配置的值。组件会根据 `type` 自动匹配合适的默认提示。 | string            | `请输入`  <br/> `请选择` | -                                                            |
 | clearable   | 是否可清空                                                   | boolean           | `true`                   | -                                                            |
 | default     | 默认值, 当为 `function` 时, 函数返回的值做为下拉框的值, 函数没有参数 | string / function | -                        | -                                                            |
+| change      | 表单项值改变事件, 函数参数为查询条件表单值对象               | function          | -                        | -                                                            |
 
 
 
@@ -147,6 +148,7 @@
 | field       | 查询条件对象的键名, 这里支持数组, 见 [field 说明](#date-range-field-说明) | string / array | -              | -      |
 | valueFormat | 值日期格式化, 见 [日期格式化](https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi) | string         | `'yyyy-MM-dd'` | -      |
 | format      | 显示格式化                                                   | string         | `'yy-MM-dd'`   | -      |
+| fullDay     | 当 `valueFormat` 为 `'yyyy-MM-dd'` 时, 是否补全时间, 开始时间添加 `00:00:00`, 结束时间添加 `23:59:59` | boolean        | `true`         | -      |
 
 #### date-range field 说明
 
