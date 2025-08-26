@@ -17,12 +17,12 @@ hero:
       text: 升级到 Vue3 (迁移中)
       link: https://github.com/gonglihai/page-element-plus
 
-# features:
-#   - title: 快速
-#     details: 通过 JavaScript 配置对象 来快速生成管理页面
-#   - title: Feature B
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-#   - title: Feature C
-#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+features:
+  - title: 配置驱动，快速开发
+    details: 只需通过 JSON 配置（search、button、table 等），即可快速生成完整的 CRUD 页面。
+  - title: 低代码 & 高复用
+    details: 减少重复页面模板开发，维护成本低，可复用性强。
+  - title: 开箱即用
+    details: 内置常见功能（搜索、分页、操作列、批量操作），无需额外开发。
 ---
 
