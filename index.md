@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Page.vue"
   text: "配置驱动 · 低代码化"
-  tagline: 易维护的管理页面组件
+  tagline: 几分钟写出一个易维护的 CRUD 页面
   actions:
     - theme: brand
       text: 快速上手
